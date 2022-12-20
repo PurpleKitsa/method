@@ -61,7 +61,6 @@ public class Main {
         } else {
             System.out.println("Доставки нет");
         }
-
         return deliveryDistance;
     }
 }
