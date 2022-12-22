@@ -6,62 +6,74 @@ public class Main {
         task2();
         task3();
     }
+
     public static void task1() {
         System.out.println("Задача 1");
         printYear(2022);
     }
-    public static boolean year(int currentYear) {
+
+    public static boolean defineYear(int currentYear) {
         return currentYear % 4 == 0 && currentYear % 100 != 0 || currentYear % 400 == 0;
     }
+
     public static void printYear(int currentYear) {
-        if (year(currentYear)) {
+        if (defineYear(currentYear)) {
             System.out.println(currentYear + " год является високосным");
         } else {
             System.out.println(currentYear + " год не является високосным");
         }
     }
+
     public static void task2() {
         System.out.println("Задача 2");
-        appVersionAndOs(0, 2022);
+        defineAppVersionAndOs(0, 2022);
     }
-    public static void appVersionAndOs(int mobileOs, int mobileYear) {
-        String os = osName(mobileOs);
-        String versionApp = appVersion(mobileYear);
+
+    public static void defineAppVersionAndOs(int mobileOs, int mobileYear) {
+        String os = defineOsName(mobileOs);
+        String versionApp = defineAppVersion(mobileYear);
 
         System.out.println(" Установите версию " + versionApp + " для " + os);
     }
-    public static String osName(int mobileOS) {
+
+    public static String defineOsName(int mobileOS) {
         if (mobileOS == 0) {
             return "IOS";
         } else {
             return "Android";
         }
     }
-    public static String appVersion(int mobileYear) {
+
+    public static String defineAppVersion(int mobileYear) {
         int currentYear = LocalDate.now().getYear();
 
-        if (currentYear < 2015) {
+        if (currentYear != mobileYear) {
             return "облегченную";
         } else {
             return "обычную";
         }
     }
+
     public static void task3() {
         System.out.println("Задача 3");
-        cardDeliveryDays(95);
+        int deliveryDistance = 95;
+        printDefineCardDeliveryDays(deliveryDistance);
     }
-    public static int cardDeliveryDays(int deliveryDistance) {
 
+    public static int defineCardDeliveryDays(int deliveryDistance) {
+        int deliveryDays;
         if (deliveryDistance <= 19) {
-            System.out.println("Потребуется дней: 1");
+            deliveryDays = 1;
         } else if (deliveryDistance <= 59) {
-            System.out.println("Потребуется дней: 2");
+            deliveryDays = 2;
         } else if (deliveryDistance <= 100) {
-            System.out.println("Потребуется дней: 3");
+            deliveryDays = 3;
         } else {
-            System.out.println("Доставки нет");
+            deliveryDays = 0;
         }
-        return deliveryDistance;
+        return deliveryDays;
+    }
+    public static void printDefineCardDeliveryDays(int deliveryDistance) {
+        System.out.println("Потребуется дней " + defineCardDeliveryDays(deliveryDistance));
     }
 }
-
